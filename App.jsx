@@ -47,6 +47,7 @@ const restrauntData = [
       "https://i.pinimg.com/originals/87/75/38/87753891cac680afe6af0a7747ede503.png",
     type: ["American", "Burger"],
     ratings: 4,
+    id: 123,
   },
   {
     name: "Burger King",
@@ -54,6 +55,7 @@ const restrauntData = [
       "https://i.pinimg.com/originals/87/75/38/87753891cac680afe6af0a7747ede503.png",
     type: ["American", "Burger"],
     ratings: 4,
+    id: 456,
   },
   {
     name: "Burger King",
@@ -61,6 +63,7 @@ const restrauntData = [
       "https://i.pinimg.com/originals/87/75/38/87753891cac680afe6af0a7747ede503.png",
     type: ["American", "Burger"],
     ratings: 4,
+    id: 789,
   },
   {
     name: "Burger King",
@@ -68,16 +71,17 @@ const restrauntData = [
       "https://i.pinimg.com/originals/87/75/38/87753891cac680afe6af0a7747ede503.png",
     type: ["American", "Burger"],
     ratings: 4,
+    id: 561,
   },
 ];
 
-const Card = ({ restraunt }) => {
+const Card = ({ image, name, type, ratings }) => {
   return (
     <div className="card">
-      <img src={restraunt.image} alt="" />
-      <h2>{restraunt.name}</h2>
-      <h3>{restraunt.type.join(", ")}</h3>
-      <h4>{restraunt.ratings} stars</h4>
+      <img src={image} alt="" />
+      <h2>{name}</h2>
+      <h3>{type.join(", ")}</h3>
+      <h4>{ratings} stars</h4>
     </div>
   );
 };
@@ -86,7 +90,7 @@ const Body = () => {
   return (
     <div className="restraunt-list">
       {restrauntData.map((singleRestraunt) => {
-        return <Card restraunt={singleRestraunt} />;
+        return <Card {...singleRestraunt} key={singleRestraunt.id} />;
       })}
     </div>
   );
