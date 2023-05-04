@@ -36,3 +36,17 @@
     width: 100%;
   }
 }
+
+.search-bar {
+  margin: 15px 15px 5px;
+  display: flex;
+  justify-content: center;
+
+  .search-input {
+    width: 50em;
+    margin-right: 10px;
+  }
+  .search-btn {
+    cursor: pointer;
+  }
+}

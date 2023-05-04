@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { restrauntData } from "../config.js";
 import RestaurantCard from "./RestaurantCard";
+import "../App.scss";
 
 const Body = () => {
   let num = 10;
