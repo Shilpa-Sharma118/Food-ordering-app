@@ -7,8 +7,8 @@ const Body = () => {
   const [searchTxt, setSearchTxt] = useState("KFC");
   const [restrauntList, setRestrauntList] = useState(restrauntData);
 
-  const filterData = (searchTxt, resList) => {
-    return resList.filter((restaurant) =>
+  const filterData = (searchTxt) => {
+    return restrauntData.filter((restaurant) =>
       restaurant.data.name.includes(searchTxt)
     );
   };
@@ -24,10 +24,10 @@ const Body = () => {
           onChange={(e) => {
             num = 12;
             setSearchTxt(e.target.value);
-            console.log("target value is", e.target.value);
-            searchTxt == "" || searchTxt.length < 1 || searchTxt == null
-              ? setRestrauntList(restrauntData)
-              : setSearchTxt(e.target.value);
+            //Using event value as searchTxt will not be setup immediately and would be available in next render
+            if (e.target.value.length < 1) {
+              setRestrauntList(restrauntData);
+            }
           }}
         />
         <button
