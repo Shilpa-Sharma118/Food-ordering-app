@@ -1,44 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./App.scss";
+export const IMG_CDN_URL =
+  "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
-/* 
-Header
-  -logo (title)
-  - Nav Items (About Users, Support, ...)
-  - Cart
-Body
-  - Restaurant cards
-    - Logo
-    - name
-    - Type of food
-    - Ratings
-    - Distance
-Footer 
-    - Links
-    -Copyright
-    */
-
-const Header = () => {
-  return (
-    <div className="header">
-      <a href="/">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/QFC_logo.svg/1200px-QFC_logo.svg.png"
-          alt=""
-        />
-      </a>
-      <div className="nav-items">
-        <span>About us</span>
-        <span>Support</span>
-        <span>Login</span>
-        <span>Cart</span>
-      </div>
-    </div>
-  );
-};
-
-const restrauntData = [
+export const restrauntData = [
   {
     type: "restaurant",
 
@@ -1278,46 +1241,3 @@ const restrauntData = [
     subtype: "basic",
   },
 ];
-
-const Card = ({ cloudinaryImageId, name, cuisines, lastMileTravelString }) => {
-  return (
-    <div className="card">
-      <img
-        src={
-          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-          cloudinaryImageId
-        }
-        alt=""
-      />
-      <h2>{name}</h2>
-      <h3>{cuisines.join(", ")}</h3>
-      <h4>{lastMileTravelString} minutes</h4>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="restraunt-list">
-      {restrauntData.map((singleRestraunt) => {
-        return <Card {...singleRestraunt.data} key={singleRestraunt.data.id} />;
-      })}
-    </div>
-  );
-};
-
-const Footer = () => {
-  return <div>Footer</div>;
-};
-
-const FoodApp = () => {
-  return (
-    <>
-      <Header />
-      <Body />
-    </>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<FoodApp />);
