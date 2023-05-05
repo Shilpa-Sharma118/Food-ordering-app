@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 //import { restrauntData } from "../config.js";
 import RestaurantCard from "./RestaurantCard";
 import "../App.scss";
-import Shimmer from "./Shimmer.jsx";
+import ShimmerUI from "./ShimmerUI.jsx";
 
 const Body = () => {
   let num = 10;
@@ -51,9 +51,7 @@ const Body = () => {
 
   if (error) return <h1> Unable to display Restraunts List!</h1>;
 
-  return !restrauntList ? (
-    <Shimmer />
-  ) : (
+  return (
     <>
       <div className="search-bar">
         <input
@@ -81,9 +79,10 @@ const Body = () => {
         </button>
       </div>
       <div className="restraunt-list">
-        {filteredRestrauntList?.length === 0 ? (
+        {!filteredRestrauntList ? (
+          <ShimmerUI />
+        ) : filteredRestrauntList?.length === 0 ? (
           <h1>
-            {" "}
             No restaurant matches your search!! Please try with something
             different!!!
           </h1>
