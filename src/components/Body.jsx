@@ -79,7 +79,7 @@ const Body = () => {
         </button>
       </div>
       <div className="restraunt-list">
-        {!filteredRestrauntList ? (
+        {!restrauntList ? (
           <ShimmerUI />
         ) : filteredRestrauntList?.length === 0 ? (
           <h1>
