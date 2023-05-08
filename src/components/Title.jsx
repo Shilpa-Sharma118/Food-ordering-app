@@ -1,12 +1,9 @@
 import React from "react";
 
-export const Title = () => {
+export const Title = ({ image }) => {
   return (
     <a href="/">
-      <img
-        src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/QFC_logo.svg/1200px-QFC_logo.svg.png"
-        alt=""
-      />
+      <img src={image} alt="" />
     </a>
   );
 };

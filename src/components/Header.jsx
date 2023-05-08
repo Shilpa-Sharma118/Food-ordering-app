@@ -1,19 +1,19 @@
 import { Title } from "./Title";
 import { useState } from "react";
+import Logo from "../assets/img/foodVilla.jpeg";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <div className="header">
-      <Title />
+      <Title image={Logo} />
       <div className="nav-items">
         <span>About</span>
         <span>Support</span>
         <span>Cart</span>
         {isLoggedIn ? (
           <button className="log-btn" onClick={() => setIsLoggedIn(false)}>
-            {" "}
             Logout
           </button>
         ) : (

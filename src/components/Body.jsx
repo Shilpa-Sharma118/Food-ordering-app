@@ -49,6 +49,11 @@ const Body = () => {
     getRestraunts();
   }, []);
 
+  //Will be called after evry render
+  useEffect(() => {
+    console.log("Rendered---");
+  });
+
   if (error) return <h1> Unable to display Restraunts List!</h1>;
 
   return (

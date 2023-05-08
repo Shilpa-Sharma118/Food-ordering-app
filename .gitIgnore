@@ -4,3 +4,4 @@
 #misc
 /dist
 .parcel-cache
+.DS_Store
