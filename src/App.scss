@@ -55,10 +55,14 @@
 }
 
 .shimmer-ui {
-  width: 100em;
-  margin-left: 10em;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
 
-  img {
-    width: 80%;
+  .shimmer-card {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    background: lightgray;
   }
 }

@@ -4,10 +4,11 @@ import "../App.scss";
 function ShimmerUI() {
   return (
     <div className="shimmer-ui">
-      <img
-        src="https://csshint.com/wp-content/uploads/2022/01/Css-Skeleton-Loader-Animation.jpg"
-        alt=""
-      />
+      {Array(10)
+        .fill("")
+        .map((e, idx) => (
+          <div key={idx} className="shimmer-card"></div>
+        ))}
     </div>
   );
 }
