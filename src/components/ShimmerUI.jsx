@@ -7,7 +7,7 @@ function ShimmerUI() {
     <div className="shimmer-ui">
       <Image
         src="https://csshint.com/wp-content/uploads/2022/01/Css-Skeleton-Loader-Animation.jpg"
-        fallback={<Shimmer width="100em" height="100em" />}
+        fallback={<Shimmer width={100} height={100} />}
       />
     </div>
   );

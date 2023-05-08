@@ -10,7 +10,7 @@ const FoodApp = () => {
     <>
       <Header />
       <Body />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
