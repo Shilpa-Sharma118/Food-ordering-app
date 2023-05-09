@@ -4,16 +4,33 @@ import "./App.scss";
 import Body from "./components/Body";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
+import About from "./components/About";
+import Error from "./components/Error";
+import Contact from "./components/Contact";
 
 const FoodApp = () => {
   return (
     <>
       <Header />
-      <Body />
+      <Outlet />
       <Footer />
     </>
   );
 };
 
+const AppRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <FoodApp />,
+    errorElement: <Error />,
+    children: [
+      { path: "/", element: <Body /> },
+      { path: "/about", element: <About /> },
+      { path: "/contact", element: <Contact /> },
+    ],
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<FoodApp />);
+root.render(<RouterProvider router={AppRouter} />);
