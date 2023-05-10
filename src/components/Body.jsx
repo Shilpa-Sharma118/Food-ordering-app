@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import "../App.scss";
 import ShimmerUI from "./ShimmerUI.jsx";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   let num = 10;
@@ -94,10 +95,12 @@ const Body = () => {
         ) : (
           filteredRestrauntList?.map((singleRestraunt) => {
             return (
-              <RestaurantCard
-                {...singleRestraunt.data}
+              <Link
+                to={"/restaurant/" + singleRestraunt.data.id}
                 key={singleRestraunt.data.id}
-              />
+              >
+                <RestaurantCard {...singleRestraunt.data} />
+              </Link>
             );
           })
         )}
