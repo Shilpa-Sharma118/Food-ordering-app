@@ -95,11 +95,8 @@ const Body = () => {
         ) : (
           filteredRestrauntList?.map((singleRestraunt) => {
             return (
-              <div className="card">
-                <Link
-                  to={"/restaurant/" + singleRestraunt.data.id}
-                  key={singleRestraunt.data.id}
-                >
+              <div className="card" key={singleRestraunt.data.id}>
+                <Link to={"/restaurant/" + singleRestraunt.data.id}>
                   <RestaurantCard {...singleRestraunt.data} />
                 </Link>
               </div>
