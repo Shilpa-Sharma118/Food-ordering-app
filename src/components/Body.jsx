@@ -6,6 +6,7 @@ import ShimmerUI from "./ShimmerUI.jsx";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import { RESTAURANT_API_URL } from "../config";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   let num = 10;
@@ -50,6 +51,12 @@ const Body = () => {
   useEffect(() => {
     console.log("Rendered---");
   });
+
+  //if I am offline, then return offline msg
+  const online = useOnline();
+  if (!online) {
+    return <h1>You are Offline..Please check your internet connection....</h1>;
+  }
 
   if (error) return <h1> Unable to display Restraunts List!</h1>;
 
