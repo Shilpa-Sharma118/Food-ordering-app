@@ -4,6 +4,8 @@ import RestaurantCard from "./RestaurantCard";
 import "../App.scss";
 import ShimmerUI from "./ShimmerUI.jsx";
 import { Link } from "react-router-dom";
+import { filterData } from "../utils/helper";
+import { RESTAURANT_API_URL } from "../config";
 
 const Body = () => {
   let num = 10;
@@ -14,12 +16,6 @@ const Body = () => {
 
   //Calling fecth() here directly outside useEffect () is not performant for our APP
   // as it will keep calling the API at every key press button which is unnecessary
-
-  const filterData = (searchTxt, resList) => {
-    return resList.filter((restaurant) =>
-      restaurant?.data?.name?.toLowerCase().includes(searchTxt.toLowerCase())
-    );
-  };
 
   //Only called once on the component first render
   /* useEffect(() => {
@@ -36,7 +32,7 @@ const Body = () => {
       // try this API for seeing how is error displayed :
       //"https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
 
-      const data = await fetch("https://apimocha.com/restaurantdata/example");
+      const data = await fetch(RESTAURANT_API_URL + "example");
       const json = await data.json();
       setRestrauntList(json?.data.cards[2]?.data?.data?.cards);
       setFilteredRestrauntList(json?.data.cards[2]?.data?.data?.cards);
