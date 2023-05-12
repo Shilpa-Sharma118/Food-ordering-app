@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./App.scss";
 import Body from "./components/Body";
@@ -10,6 +10,11 @@ import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestrauntMenu from "./components/RestrauntMenu";
 import Profile from "./components/Profile";
+//import Instamart from "./components/Instamart";
+
+//Lazy loading of instamart
+//Upon Demand Loading -> upon render -> suspend loading
+const Instamart = lazy(() => import("./components/Instamart"));
 
 const FoodApp = () => {
   return (
@@ -45,6 +50,14 @@ const AppRouter = createBrowserRouter([
       },
       { path: "/contact", element: <Contact /> },
       { path: "/restaurant/:id", element: <RestrauntMenu /> },
+      {
+        path: "/instamart",
+        element: (
+          <Suspense>
+            <Instamart />
+          </Suspense>
+        ),
+      },
     ],
   },
 ]);
