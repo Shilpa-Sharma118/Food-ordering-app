@@ -5,7 +5,7 @@ import Body from "./components/Body";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
-import About from "./components/About";
+//import About from "./components/About";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestrauntMenu from "./components/RestrauntMenu";
@@ -16,6 +16,7 @@ import ShimmerUI from "./components/ShimmerUI";
 //Lazy loading of instamart
 //Upon Demand Loading -> upon render -> suspend loading
 const Instamart = lazy(() => import("./components/Instamart"));
+const About = lazy(() => import("./components/About"));
 
 const FoodApp = () => {
   return (
@@ -36,7 +37,11 @@ const AppRouter = createBrowserRouter([
       { path: "/", element: <Body /> },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<h1> Loading....</h1>}>
+            <About />
+          </Suspense>
+        ),
         children: [
           {
             //you should add only profile to get /profile added to /about.
