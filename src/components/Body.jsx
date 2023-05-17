@@ -13,7 +13,7 @@ const Body = () => {
   const [searchTxt, setSearchTxt] = useState("");
   const [filteredRestrauntList, setFilteredRestrauntList] = useState();
   const [restrauntList, setRestrauntList] = useState();
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
 
   //Calling fecth() here directly outside useEffect () is not performant for our APP
   // as it will keep calling the API at every key press button which is unnecessary

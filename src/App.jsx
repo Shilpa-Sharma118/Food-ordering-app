@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./App.scss";
 import Body from "./components/Body";
@@ -19,6 +19,10 @@ const Instamart = lazy(() => import("./components/Instamart"));
 const About = lazy(() => import("./components/About"));
 
 const FoodApp = () => {
+  const [user, setUser] = useState({
+    name: "ABC",
+    email: "abc@gmail.com",
+  });
   return (
     <>
       <Header />
