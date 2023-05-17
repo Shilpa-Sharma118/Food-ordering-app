@@ -7,9 +7,9 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <div className="header">
+    <div className="flex space-x-1.5 justify-between border-4 border-black p-2 bg-pink-100">
       <Title image={Logo} />
-      <div className="nav-items">
+      <div className="flex items-center space-x-1.5 ">
         <span>
           <Link to="/">Home</Link>
         </span>

@@ -62,11 +62,11 @@ const Body = () => {
 
   return (
     <>
-      <div className="search-bar">
+      <div className="search-bar p-5 my-5 flex justify-center">
         <input
           type="text"
           placeholder="Search"
-          className="search-input"
+          className="border-black p-1 border-2 w-96 rounded-lg"
           value={searchTxt}
           onChange={(e) => {
             num = 12;
@@ -78,7 +78,7 @@ const Body = () => {
           }}
         />
         <button
-          className="search-btn"
+          className="p-2 m-2 bg-black text-white rounded-lg"
           onClick={() => {
             const filteredList = filterData(searchTxt, restrauntList);
             setFilteredRestrauntList(filteredList);
@@ -87,7 +87,7 @@ const Body = () => {
           Search {num}
         </button>
       </div>
-      <div className="restraunt-list">
+      <div className="flex flex-wrap gap-2">
         {!restrauntList ? (
           <ShimmerUI />
         ) : filteredRestrauntList?.length === 0 ? (
@@ -98,7 +98,10 @@ const Body = () => {
         ) : (
           filteredRestrauntList?.map((singleRestraunt) => {
             return (
-              <div className="card" key={singleRestraunt.data.id}>
+              <div
+                className="p-2 h-96  border-2 border-orange-950 m-2"
+                key={singleRestraunt.data.id}
+              >
                 <Link to={"/restaurant/" + singleRestraunt.data.id}>
                   <RestaurantCard {...singleRestraunt.data} />
                 </Link>
