@@ -7,7 +7,7 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <div className="flex space-x-1.5 justify-between border-4 border-black p-2 bg-pink-100">
+    <div className="flex space-x-1.5 justify-between border-2 border-gray-500 p-2 bg-pink-100">
       <Title image={Logo} />
       <div className="flex items-center space-x-1.5 ">
         <span>
@@ -24,7 +24,7 @@ const Header = () => {
           <Link to="/instamart">Instamart</Link>
         </span>
         {isLoggedIn ? (
-          <button className="log-btn" onClick={() => setIsLoggedIn(false)}>
+          <button className="" onClick={() => setIsLoggedIn(false)}>
             Logout
           </button>
         ) : (

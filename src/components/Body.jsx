@@ -62,7 +62,7 @@ const Body = () => {
 
   return (
     <>
-      <div className="search-bar p-5 my-5 flex justify-center">
+      <div className="p-5 my-5 flex justify-center">
         <input
           type="text"
           placeholder="Search"
@@ -99,7 +99,7 @@ const Body = () => {
           filteredRestrauntList?.map((singleRestraunt) => {
             return (
               <div
-                className="p-2 h-96  border-2 border-orange-950 m-2"
+                className="p-2 h-96  border-2 border-orange-950 m-2 bg-gray-200 rounded-lg"
                 key={singleRestraunt.data.id}
               >
                 <Link to={"/restaurant/" + singleRestraunt.data.id}>
