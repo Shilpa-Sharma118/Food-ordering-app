@@ -1,5 +1,6 @@
 import React from "react";
 import Profile from "./ProfileClass";
+import userContext from "../utils/userContext";
 import ProfileFunction from "./Profile";
 class About extends React.Component {
   constructor(props) {
@@ -25,6 +26,13 @@ class About extends React.Component {
     return (
       <div>
         <h1> About us page</h1>
+        <userContext.Consumer>
+          {({ user }) => (
+            <h4 classname="font-bold text-xl">
+              {user.name} - {user.email}
+            </h4>
+          )}
+        </userContext.Consumer>
         <p>This is a new page created for About us details!!!</p>
         {/*  <Profile key={1} name="First Child" /> */}
         <Profile name="Child" />

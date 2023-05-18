@@ -11,6 +11,7 @@ import Contact from "./components/Contact";
 import RestrauntMenu from "./components/RestrauntMenu";
 import Profile from "./components/Profile";
 import ShimmerUI from "./components/ShimmerUI";
+import userContext from "./utils/userContext";
 //import Instamart from "./components/Instamart";
 
 //Lazy loading of instamart
@@ -20,15 +21,15 @@ const About = lazy(() => import("./components/About"));
 
 const FoodApp = () => {
   const [user, setUser] = useState({
-    name: "ABC",
-    email: "abc@gmail.com",
+    name: "Shilpa",
+    email: "shilpa@gmail.com",
   });
   return (
-    <>
+    <userContext.Provider value={{ user: user, setUser: setUser }}>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </userContext.Provider>
   );
 };
 

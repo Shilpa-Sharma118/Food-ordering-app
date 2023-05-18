@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 //import { restrauntData } from "../config.js";
 import RestaurantCard from "./RestaurantCard";
 import "../App.scss";
@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import { RESTAURANT_API_URL } from "../config";
 import useOnline from "../utils/useOnline";
+import userContext from "../utils/userContext";
 
 const Body = () => {
   let num = 10;
@@ -14,6 +15,7 @@ const Body = () => {
   const [filteredRestrauntList, setFilteredRestrauntList] = useState();
   const [restrauntList, setRestrauntList] = useState();
   const [error, setError] = useState("");
+  const { user, setUser } = useContext(userContext);
 
   //Calling fecth() here directly outside useEffect () is not performant for our APP
   // as it will keep calling the API at every key press button which is unnecessary
@@ -86,6 +88,20 @@ const Body = () => {
         >
           Search {num}
         </button>
+        <input
+          type="text"
+          value={user.name}
+          className="border-black p-1 border-2 w-96 rounded-lg"
+          onChange={(e) =>
+            setUser({ name: e.target.value, email: "newmail@gmail.com" })
+          }
+        />
+        <input
+          type="text"
+          value={user.email}
+          className="border-black p-1 border-2 w-96 rounded-lg"
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
+        />
       </div>
       <div className="flex flex-wrap gap-2">
         {!restrauntList ? (

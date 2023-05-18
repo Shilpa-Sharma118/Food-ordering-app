@@ -32,7 +32,7 @@ const Instamart = () => {
   //   showCareers: false,
   // });
 
-  const [visibleSection, setVisibleSection] = useState("");
+  const [visibleSection, setVisibleSection] = useState("About");
 
   return (
     <div>
