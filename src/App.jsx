@@ -24,6 +24,12 @@ const FoodApp = () => {
     name: "Shilpa",
     email: "shilpa@gmail.com",
   });
+
+  // useEffect(() => {
+  //   authenticate user
+  //   setUser
+  // }, [])
+
   return (
     <userContext.Provider value={{ user: user, setUser: setUser }}>
       <Header />
