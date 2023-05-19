@@ -12,6 +12,10 @@ import RestrauntMenu from "./components/RestrauntMenu";
 import Profile from "./components/Profile";
 import ShimmerUI from "./components/ShimmerUI";
 import userContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import Cart from "./components/Cart";
+
 //import Instamart from "./components/Instamart";
 
 //Lazy loading of instamart
@@ -31,11 +35,14 @@ const FoodApp = () => {
   // }, [])
 
   return (
-    <userContext.Provider value={{ user: user, setUser: setUser }}>
-      <Header />
-      <Outlet />
-      <Footer />
-    </userContext.Provider>
+    //Basically I am providing store to my whole app
+    <Provider store={store}>
+      <userContext.Provider value={{ user: user, setUser: setUser }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </userContext.Provider>
+    </Provider>
   );
 };
 
@@ -67,6 +74,7 @@ const AppRouter = createBrowserRouter([
       },
       { path: "/contact", element: <Contact /> },
       { path: "/restaurant/:id", element: <RestrauntMenu /> },
+      { path: "/cart", element: <Cart /> },
       {
         path: "/instamart",
         element: (

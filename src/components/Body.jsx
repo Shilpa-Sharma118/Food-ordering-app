@@ -115,7 +115,7 @@ const Body = () => {
           filteredRestrauntList?.map((singleRestraunt) => {
             return (
               <div
-                className="p-2 h-96  border-2 border-orange-950 m-2 bg-gray-200 rounded-lg"
+                className="p-2 h-96  border-2 border-orange-950 m-2 bg-teal-50 rounded-lg"
                 key={singleRestraunt.data.id}
               >
                 <Link to={"/restaurant/" + singleRestraunt.data.id}>
