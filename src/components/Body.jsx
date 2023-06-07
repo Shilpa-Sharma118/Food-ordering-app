@@ -35,7 +35,9 @@ const Body = () => {
       // try this API for seeing how is error displayed :
       //"https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
 
+      //This data is a readable stream
       const data = await fetch(RESTAURANT_API_URL + "example");
+      //This readable strem is converted to .json() here
       const json = await data.json();
       setRestrauntList(json?.data.cards[2]?.data?.data?.cards);
       setFilteredRestrauntList(json?.data.cards[2]?.data?.data?.cards);
@@ -80,6 +82,7 @@ const Body = () => {
           }}
         />
         <button
+          data-testid="search-btn"
           className="p-2 m-2 bg-black text-white rounded-lg"
           onClick={() => {
             const filteredList = filterData(searchTxt, restrauntList);

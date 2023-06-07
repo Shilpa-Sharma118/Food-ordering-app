@@ -4,6 +4,7 @@ import Logo from "../assets/img/foodVilla.jpeg";
 import { Link } from "react-router-dom";
 import userContext from "../utils/userContext";
 import { useSelector } from "react-redux";
+import useOnline from "../utils/useOnline";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -12,11 +13,14 @@ const Header = () => {
 
   const cartItems = useSelector((store) => store.cart.items);
 
+  const isOnline = useOnline();
+
   console.log("cart-Item", cartItems);
 
   return (
     <div className="flex space-x-1.5 justify-between border-2 border-gray-500 p-2 bg-pink-100">
       <Title image={Logo} />
+      <h1 data-testid="online-status">{isOnline ? "Online" : "Offline"}</h1>
       <div className="flex items-center space-x-1.5 ">
         <span>
           <Link to="/">Home</Link>
@@ -31,7 +35,9 @@ const Header = () => {
           <Link to="/instamart">Instamart</Link>
         </span>
         <span style={{ backgroundColor: "pink" }}>
-          <Link to="/cart">Cart-{cartItems.length}</Link>
+          <Link to="/cart">
+            <span data-testid="cart">Cart-{cartItems.length}</span>
+          </Link>
         </span>
 
         {isLoggedIn ? (

@@ -3,7 +3,7 @@ import "../App.scss";
 
 function ShimmerUI() {
   return (
-    <div className="flex gap-3 flex-wrap">
+    <div className="flex gap-3 flex-wrap" data-testid="shimmer">
       {Array(10)
         .fill("")
         .map((e, idx) => (
