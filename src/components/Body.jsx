@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 //import { restrauntData } from "../config.js";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { promotedRestaurant } from "./RestaurantCard";
 import "../App.scss";
 import ShimmerUI from "./ShimmerUI.jsx";
 import { Link } from "react-router-dom";
@@ -16,6 +16,7 @@ const Body = () => {
   const [restrauntList, setRestrauntList] = useState();
   const [error, setError] = useState("");
   const { user, setUser } = useContext(userContext);
+  const PromotedRestaurantCard = promotedRestaurant(RestaurantCard);
 
   //Calling fecth() here directly outside useEffect () is not performant for our APP
   // as it will keep calling the API at every key press button which is unnecessary
@@ -40,6 +41,7 @@ const Body = () => {
       //This readable strem is converted to .json() here
       const json = await data.json();
       setRestrauntList(json?.data.cards[2]?.data?.data?.cards);
+      console.log("cards look like", json?.data.cards[2]?.data?.data?.cards);
       setFilteredRestrauntList(json?.data.cards[2]?.data?.data?.cards);
     } catch (error) {
       setError(error);
@@ -122,7 +124,11 @@ const Body = () => {
                 key={singleRestraunt.data.id}
               >
                 <Link to={"/restaurant/" + singleRestraunt.data.id}>
-                  <RestaurantCard {...singleRestraunt.data} />
+                  {singleRestraunt.data.promoted ? (
+                    <PromotedRestaurantCard {...singleRestraunt.data} />
+                  ) : (
+                    <RestaurantCard {...singleRestraunt.data} />
+                  )}
                 </Link>
               </div>
             );
