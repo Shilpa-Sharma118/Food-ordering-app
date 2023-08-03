@@ -1,0 +1,47 @@
+.wines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 2px;
+  margin: 2px;
+}
+
+.wine-card {
+  border: solid 2px black;
+  padding: 2px;
+  margin: 2px;
+  height: 300px;
+  width: 400px;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: azure;
+
+  img {
+    height: 200px;
+  }
+}
+
+.header {
+  border: solid 2px black;
+  height: 100vh;
+  padding: 20px;
+  margin: 20px;
+}
+
+.child-one {
+  border: solid 2px black;
+  height: 200px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.child-two {
+  border: solid 2px black;
+  height: 200px;
+  padding: 20px;
+  margin: 20px;
+}

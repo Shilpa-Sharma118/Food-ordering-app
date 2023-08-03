@@ -15,6 +15,8 @@ import userContext from "./utils/userContext";
 import { Provider } from "react-redux";
 import store from "./utils/store";
 import Cart from "./components/Cart";
+import "./App.scss";
+import InfiniteScroll from "./components/InfiniteScroll";
 
 //import Instamart from "./components/Instamart";
 
@@ -73,6 +75,7 @@ const AppRouter = createBrowserRouter([
         ],
       },
       { path: "/contact", element: <Contact /> },
+      { path: "/infinite", element: <InfiniteScroll /> },
       { path: "/restaurant/:id", element: <RestrauntMenu /> },
       { path: "/cart", element: <Cart /> },
       {
